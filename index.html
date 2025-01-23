@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Leon Froehling">
+
+<title>Total Error Sheets for Datasets (TES-D)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap-8a79a254b8e706d3c925cde0a310d4f0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Total Error Sheets for Datasets (TES-D)</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Leon Froehling </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level1">
+<h1>1. Introduction</h1>
+<p>The Total Error Sheets for Datasets (TES-D) are a template-based approach for documenting datasets collected from online platforms. For the TES-D, we have developed a catalog of questions that dataset creators are supposed to answer after collecting and before sharing their datasets, guiding them through a critical reflection on the data collection process and the resulting dataset. Ideally, the resulting documentation sheet should be shared together with the data, allowing potential re-users of the dataset to assess whether the contents and characteristics of the dataset are suitable for their own research purpose.</p>
+<p>The datasets we had in mind when creating the Total Error Sheets for Datasets are those typically used in Computational Social Science (CSS) and related disciplines, in which researchers increasingly turn towards studying the “digital traces” people leave behind when using online platforms. Platforms from which researchers frequently collect digital traces to use them as Digital Behavioral Data (DBD) include (social) media platforms like X (Twitter), YouTube or Wikipedia, but also shopping portals, search engines, online maps and many more.</p>
+<p>The variety of data types and the sizes of the datasets available from these platforms offer great opportunities for meaningful insights into opinions, communication practices and other forms of human behavior. At the same time, the fact that DBD is “found” rather than designed for a specific research purpose introduces a number of challenges for ensuring good data quality. For instance, researchers must often find their own ways to collect data from platforms (which often appear as “black boxes”, opaque in their exact functioning), resulting in a host of design decisions made when collecting and processing these digital traces, which in turn have a direct influence on the characteristics and quality of the resulting datasets. Since most researchers use their very own setups and pipelines for collecting and processing the data and since the online platform environments tend to change over time (new tools, new versions of access rights and restrictions), a need for careful inspection and documentation of the data curation processes and the resulting datasets arises.</p>
+<p>TES-D was built by combining two approaches popular in very different disciplines. From Machine Learning (ML) and Natural Language Processing (NLP), we borrowed the only recently established practice to carefully examine and document the datasets used for method development and research <span class="citation" data-cites="gebru2021datasheets bender2018data">[@gebru2021datasheets; @bender2018data]</span>. From the social sciences, we took the idea of using error frameworks to systematize the research process as well as the notion of (cumulative) errors (Groves et al.&nbsp;2011) More specifically, we use the TED-On <span class="citation" data-cites="sen2021total">[@sen2021total]</span> to structure our documentation template and to inspire many of its question.</p>
+<p>With TES-D, we aim to offer an easy-to-use, hands-on tool that facilitates the systematic documentation of online platform datasets and, by inspiring critical reflection on data collection practices, contributes to higher data quality standards. Through an interdisciplinary approach and an effort to unify competing terminologies, we hope to make TES-D accessible to researchers from different disciplines, unified by their interest in working with DBD.</p>
+</section>
+<section id="tes-d-tool" class="level1">
+<h1>2. TES-D Tool</h1>
+<p>In essence, TES-D is a catalog of questions that researchers collecting online platform datasets should critically reflect on and answer during the creation of their datasets. To facilitate the documentation of datasets using TES-D, we provide three different formats:</p>
+<ol type="1">
+<li><p>A diagram-based template. The template is designed to better structure the documentation process and offers spaces for the user’s notes on the different errors.</p></li>
+<li><p>A set of questions. The questions should be answered by dataset creators to document their data collection.</p></li>
+<li><p>A manual. The manual provides context, details and justification for the questions.</p></li>
+</ol>
+<p>Further information on the motivation behind creating TES-D as well as the development process are available from the <a href="https://arxiv.org/abs/2306.14219">paper</a>. The paper also provides the full versions of all materials.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">First Page Template</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Second Page Template</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><img src="images/t1.jpg" class="img-fluid"></p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><img src="images/t2.jpg" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="application-and-use-case" class="level1">
+<h1>3. Application and use case</h1>
+<p>We provide an example of how TES-D may be used to critically reflect upon the dataset creation process and result in a dataset documentation sheet by applying it to the “Call me sexist, but..” dataset. <span class="citation" data-cites="samory2021call">@samory2021call</span> created this dataset to evaluate the reliability of common machine learning models in detecting different types of sexism found online.</p>
+<p>In their work, <span class="citation" data-cites="samory2021call">@samory2021call</span> are very carefully to ground the different dimensions of sexism in psychological scales and derive a codebook for sexism in social media from that foundation. Apart from the variety of defined and operationalized types of sexism collected in their dataset, the authors further include adversarial examples - versions of sexist examples that with minimal lexical changes have been turned non-sexist. The final dataset ultimately combines examples for sexism “in the wild” collected by the authors from the social media platform Twitter, annotations as well as adversarial examples provided by crowdworkers, psychological scales developed to measure sexism as well as examples for different types of sexism extracted from other research datasets. It thereby displays a whole range of interwoven and innovative components that are so typical for research with digital behavioral data.</p>
+<p>While the authors go to great length to describe the individual collection and processing steps as well as to provide reasoning for the decisions taken in creating the dataset throughout their paper, a researcher considering to re-use the dataset for their own purpose could still struggle to identify the relevant pieces of information to assess its suitability and understand its overall quality. It is at this point where TES-D comes in, offering the dataset creators an additional resource to systematically reflect upon and share any critical decisions and steps taken in preparing the dataset.</p>
+<p>In the following sections, we will introduce the different stages of the research process covered by TES-D and discuss the answers to some of the relevant questions, always using the “Call me sexist, but..” dataset as our case study.</p>
+<section id="general-characteristics" class="level2">
+<h2 class="anchored" data-anchor-id="general-characteristics">General Characteristics</h2>
+<p>This section should provide the reader with an overview of the dataset, including its contents, access details, and the motivation for its creation. While the general characteristics do not contribute to the error-focus of the rest of the TES-D approach, they are necessary to make the documentation comprehensive and independent of additional resources.</p>
+<p>TES-D starts by establishing a level of transparency, accountability and responsibility in the dataset creation process, asking about the identities of the creators. To ensure reusability, further questions concern the hosting and licensing status of the dataset, before asking about the general contents and size of the dataset. Prominently featured in the first section are also questions regarding the reproducibility of the data collection, potential ethical concerns as well as risks of using the data.</p>
+<p>For the “Call me sexist, but..” dataset, one important aspect to properly document is its composition, given that instances are combined from different sources and augmented using adversarial examples. The TES-D therefore lists the number of instances and adversarial examples coming from each source. Another critical question in this section regards ethical considerations. While no ethics review process had been conducted, the fact that the dataset creators took care to fairly compensate and debrief crowdworkers may still be highlighted. The TES-D also communicates that out of ethical considerations the adversarial augmentations were restricted to turning sexist instances into non-sexist instances, not vice-versa.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Case Study
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<iframe src="images/1gen.pdf" width="100%" height="600px">
+</iframe>
+</div>
+</div>
+</div>
+</section>
+<section id="construct-definition" class="level2">
+<h2 class="anchored" data-anchor-id="construct-definition">Construct Definition</h2>
+<p>The construct is the essence of what data-based research is interested in measuring. Without a clear and precise definition of the construct, any potential operationalization based on the available data will suffer from a lack of validity. <strong>Validity</strong> is concerned with demonstrating that measures obtained for a specific construct are both meaningful and useful. The careful design of a suitable construct is especially crucial before using digital behavioral datasets, as the connection of digital traces to concepts relevant to research must often be established first.</p>
+<p>Even if the dataset was not collected with a specific construct or purpose in mind, many questions in this section might not apply and may be skipped. However, we would encourage dataset creators not to dismiss this section altogether, as datasets are always part of a broader research landscape and might, if not by the original creators of the dataset, still be used for measuring a specific construct at a later stage.</p>
+<p>With a strong focus on validity, the questions in this section first establish the construct of interest by asking about its exact definition and operationalization. Ideally, the dataset creators should be able to clearly differentiate their construct from related constructs. Given the frequent mismatch between dataset and target populations in research with digital behavioral data, further questions in this section inquire about the (sub)populations present in the dataset and those considered to be the target populations.</p>
+<p>The Construct Definition section of the TES-D for the “Call me sexist, but..” dataset starts with a detailed explanation of the dataset creators’ research objectives. Part of what makes the dataset unique is its theory-informed taxonomy of types of sexism and the attention on not just the contents but also the phrasing of the instances. The TES-D lists both these aspects, before explaining the operationalization of sexism through the coding scheme which was then used by crowdworkers to generate the dataset labels. Even though the dataset creators do not explicitly define a target population in their work, the corresponding question may still be answered by their focus on “sexism in social media”, making the English-speaking platform (in this case Twitter) users the target population.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Case Study
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<iframe src="images/2con.pdf" width="100%" height="600px">
+</iframe>
+</div>
+</div>
+</div>
+</section>
+<section id="platform-selection" class="level2">
+<h2 class="anchored" data-anchor-id="platform-selection">Platform Selection</h2>
+<p>The selection of a platform determines what traces can be collected by the dataset creator(s). The platform’s available traces should align with the construct definition and operationalization. The ways in which the characteristics of the platform shape and influence the user behavior and in consequence the traces in the dataset should be examined and documented (<strong>Platform Affordances Error</strong>). In addition, different platforms attract different types of users, bringing with them their own conventions and behaviors (<strong>Platform Coverage Error</strong>). Recent years have shown that the popularity and user experience of platforms may rather rapidly change, prompting whole groups of users to move from one platform to another.</p>
+<p>Questions in this section are all about capturing the essence of the platform at the time of the dataset collection as accurately as possible and in as much detail as necessary. Some of the relevant aspects include the key (technical) characteristics of the platform, the terms of service and their implications on platform interactions, as well as the sociocultural norms governing user behavior.</p>
+<p>The TES-D for the “Call me sexist, but..” dataset makes an effort to cover as many of the platform characteristics at the time of data collection as possible. For example, back when the original dataset was created, there still was a limit of 280 characters for posts on Twitter. An important aspect with regard to the construct of interest is the fact that the terms of service listed “sexist tropes” as a reason for a tweet’s potential removal, thus making the availability of instances relevant for the dataset dependent on the efficiency and efficacy of the platform’s moderation practices. For any platform data collection, the question how exactly the data is made accessible by the platform (and oftentimes more importantly how it is restricted) is crucial for the size and shape of the resulting dataset. In case of the “Call me sexist, but..” dataset, the Twitter API was still openly available for researchers, allowing the dataset creators to retrospectively collect tweets via keywords or keyphrases. In theory, this allows researchers to collect all tweets containing the given word or phrases. In practice, however, tweets that had been removed either by the platform or by the user before they could be collected for the dataset would be missing.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Case Study
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<iframe src="images/3pla.pdf" width="100%" height="600px">
+</iframe>
+</div>
+</div>
+</div>
+</section>
+<section id="data-collection" class="level2">
+<h2 class="anchored" data-anchor-id="data-collection">Data Collection</h2>
+<p>Within the constraints of data availability and technical limitations of the access offered by platforms, dataset collectors need to decide how to select traces and user information relevant for their study. The dataset creator has to calibrate the collection process so that all traces that contribute to the measurement of the construct and all users that are part of the target population are collected, without including traces and users that are irrelevant to the construct and target population.</p>
+<p>Depending on the chosen operationalization of the construct of interest, relevant traces for its calculation need to be collected. When collecting these traces, every detail of the collection process potentially influences the composition of the resulting dataset. However, not only the deliberate decisions of dataset collectors are relevant, but also the amount and type of traces made available from the platform. While the traces available for collection often present only a subset of the total traces in existence, in most circumstances, not all available traces can be collected, stored, and processed. The omission of relevant traces or the inclusion of irrelevant traces is called <strong>Trace Selection Error</strong>.</p>
+<p>While the Trace Selection Error is concerned with the systematic in- and exclusion of traces, the <strong>User Selection Error</strong> looks at users that are systematically omitted or included. It often builds directly on Trace Selection Error, especially if users are not explicitly collected but included as a consequence of the collected traces.</p>
+<p>The questions on the actual collection of the data are all about the (technical) details of the collection process, trying to surface any instances or information that might have been missed. Other important questions ask about the possible inclusion of sensitive, confidential or minor-related data and the consent of users to the data collection.</p>
+<p>In the TES-D, the rationale behind the used keyphrase “Call me sexist, but..” is laid out, oftentimes observed to practically serve as a disclaimer for sexist opinion following it. For the “Call me sexist, but..” dataset, the creators implemented a number of steps to ensure the anonymity of Twitter users whose tweets were collected. Usernames were replaced with placeholder-tokens, and mentions of family names in the text were detected using regular expressions and a NER model before being abbreviated to only the initial letter.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Case Study
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<iframe src="images/4col.pdf" width="100%" height="600px">
+</iframe>
+</div>
+</div>
+</div>
+</section>
+<section id="data-preprocessing-and-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="data-preprocessing-and-data-analysis">Data Preprocessing and Data Analysis</h2>
+<p>Both data preprocessing and data analysis steps typically have the same objective of enriching the data with information such as additional labels or alternative representations.</p>
+<p>Datasets that not only capture instances and their characteristics but also augment those mere observations with associated labels representing some form of additional knowledge on these instances are a valuable resource in CSS research. While the original idea of these datasets has been to collect reliably true values only, it is increasingly common to approximate these true values via crowdworkers or computational models explicitly trained for the task. The errors and uncertainties regarding data quality introduced through these steps are called <strong>Trace Augmentation Error</strong> and <strong>Trace Measurement Error</strong>. Any errors made by automated methods or manual processes to infer characteristics and attributes of individuals are called <strong>User Augmentation Error</strong>.</p>
+<p>On the other hand, to avoid the inclusion of traces irrelevant to the purpose of the data collection, filters and heuristics may be used to remove such traces from the dataset. Irrelevant traces could be traces identified as spam or traces in a language or format not covered by the purpose of data collection. Similarly, users associated with inauthentic behavior (e.g., trolling or automation) are frequently considered irrelevant for the purpose of data collection and therefore filtered out. Errors made in filtering out irrelevant traces and users are called <strong>Trace Reduction Error</strong> and <strong>User Reduction Error</strong>, respectively.</p>
+<p>The questions in this section focus on the different way for augmenting datasets. They ask for details of the automated methods or human annotations used to label the dataset as well as for information on any steps taken to validate these labels. Questions about the inference of personal attributes and characteristics, the identification risks for individuals included in the collection, and the danger of reinforcing social inequality through the design of the dataset raise awareness for misuse and harm scenarios of datasets.</p>
+<p>In the “Call me sexist, but..” dataset, getting the right annotations of the collected instances for the construct of sexism is crucial. The TES-D for this dataset therefore explains in detail the process of recruiting and training the crowdworkers serving as annotators, further documenting the remuneration of the workers. Crowdworkers had to be located in the US and have large experience on the annotation platform (MTurk), combined with a past approval rate of their work above 99%. In the final qualification test, they had to correctly annotate four out of five examples. Regarding the validation of the resulting labels, the TES-D documents the aggregation of individual annotations into a final via majority vote and the use of Randolph’s Kappa and majority agreement for verification of the annotator consistency. TES-D finally offers a discussion of potential misuse scenarios, raising awareness of the danger that malicious actors could use the sexist instances in the dataset to further spread them directly or to train models to artificially generate similar harmful content.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Case Study
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<iframe src="images/5pre.pdf" width="100%" height="600px">
+</iframe>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="discussion" class="level1">
+<h1>4. Discussion</h1>
+<p>As demonstrated above, the TES-D helps to structure and inspire a critical reflection on the dataset creation process, beginning with the definition of the construct all the way to the end when analysis results are produced. A key challenge for the development of TES-D is the heterogeneity of digital behavioral data collected from online platforms. While the variety of digital data available offers great opportunities for research, it simultaneously makes it harder to cover and assess all its different aspects that relate to data quality. We tried to account for this challenge by keeping both the questions themselves and the overall format of TES-D flexible - if questions are not applicable to their data collection, dataset creators are encouraged to skip them.</p>
+<p>Another aspect that makes the important data documentation work tedious at times is the rather high level of abstraction. While some of the questions of the TES-D are directly measurable and straightforward to report, the majority of questions requires a more profound reflection not just on the immediate contents and characteristics of the dataset, but also on its situation in the broader research landscape. TES-D therefore not just serves to document the technicalities of datasets, but also the current ethical and legal context in which they exist. Mainly for those questions that directly correspond to actual programming work for data collection and processing, we developed a <strong>Workflow-Integrated Data Documentation tool (WIDD)</strong>, that lowers some of the barriers of documentation by integrating the catalog of relevant questions directly into the Jupyter programming environment.</p>
+<p>Making documentation approaches as accessible as possible is crucial for their impact, as these types of self-assessment tools depend on the willingness of the dataset creators to actively and honestly engage with them. One possibility to further increase that engagement would be the introduction of a score-system, resulting in an overall data quality score for the documented dataset in the end. Apart from raising awareness for data quality by featuring it more prominently, such a score would be useful for researchers that already follow best practices and high standard to more easily display their efforts to the community. An additional benefit would be that re-users of dataset (or reviewers of publications) would have a strong signal for judging the quality of the dataset at a glance.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
