@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="index_files/libs/clipboard/clipboard.min.js"></script>
@@ -74,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
 <p>The Total Error Sheets for Datasets (TES-D) are a template-based approach for documenting datasets collected from online platforms. For the TES-D, we have developed a catalog of questions that dataset creators are supposed to answer after collecting and before sharing their datasets, guiding them through a critical reflection on the data collection process and the resulting dataset. Ideally, the resulting documentation sheet should be shared together with the data, allowing potential re-users of the dataset to assess whether the contents and characteristics of the dataset are suitable for their own research purpose.</p>
 <p>The datasets we had in mind when creating the Total Error Sheets for Datasets are those typically used in Computational Social Science (CSS) and related disciplines, in which researchers increasingly turn towards studying the “digital traces” people leave behind when using online platforms. Platforms from which researchers frequently collect digital traces to use them as Digital Behavioral Data (DBD) include (social) media platforms like X (Twitter), YouTube or Wikipedia, but also shopping portals, search engines, online maps and many more.</p>
 <p>The variety of data types and the sizes of the datasets available from these platforms offer great opportunities for meaningful insights into opinions, communication practices and other forms of human behavior. At the same time, the fact that DBD is “found” rather than designed for a specific research purpose introduces a number of challenges for ensuring good data quality. For instance, researchers must often find their own ways to collect data from platforms (which often appear as “black boxes”, opaque in their exact functioning), resulting in a host of design decisions made when collecting and processing these digital traces, which in turn have a direct influence on the characteristics and quality of the resulting datasets. Since most researchers use their very own setups and pipelines for collecting and processing the data and since the online platform environments tend to change over time (new tools, new versions of access rights and restrictions), a need for careful inspection and documentation of the data curation processes and the resulting datasets arises.</p>
-<p>TES-D was built by combining two approaches popular in very different disciplines. From Machine Learning (ML) and Natural Language Processing (NLP), we borrowed the only recently established practice to carefully examine and document the datasets used for method development and research <span class="citation" data-cites="gebru2021datasheets bender2018data">[@gebru2021datasheets; @bender2018data]</span>. From the social sciences, we took the idea of using error frameworks to systematize the research process as well as the notion of (cumulative) errors (Groves et al.&nbsp;2011) More specifically, we use the TED-On <span class="citation" data-cites="sen2021total">[@sen2021total]</span> to structure our documentation template and to inspire many of its question.</p>
+<p>TES-D was built by combining two approaches popular in very different disciplines. From Machine Learning (ML) and Natural Language Processing (NLP), we borrowed the only recently established practice to carefully examine and document the datasets used for method development and research <span class="citation" data-cites="gebru2021datasheets bender2018data">(<a href="#ref-gebru2021datasheets" role="doc-biblioref">Gebru et al. 2021</a>; <a href="#ref-bender2018data" role="doc-biblioref">Bender and Friedman 2018</a>)</span>. From the social sciences, we took the idea of using error frameworks to systematize the research process as well as the notion of (cumulative) errors <span class="citation" data-cites="groves2011survey">(<a href="#ref-groves2011survey" role="doc-biblioref">Groves et al. 2011</a>)</span>. More specifically, we use the TED-On <span class="citation" data-cites="sen2021total">(<a href="#ref-sen2021total" role="doc-biblioref">Sen et al. 2021</a>)</span> to structure our documentation template and to inspire many of its question.</p>
 <p>With TES-D, we aim to offer an easy-to-use, hands-on tool that facilitates the systematic documentation of online platform datasets and, by inspiring critical reflection on data collection practices, contributes to higher data quality standards. Through an interdisciplinary approach and an effort to unify competing terminologies, we hope to make TES-D accessible to researchers from different disciplines, unified by their interest in working with DBD.</p>
 </section>
 <section id="tes-d-tool" class="level1">
@@ -100,8 +120,8 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="application-and-use-case" class="level1">
 <h1>3. Application and use case</h1>
-<p>We provide an example of how TES-D may be used to critically reflect upon the dataset creation process and result in a dataset documentation sheet by applying it to the “Call me sexist, but..” dataset. <span class="citation" data-cites="samory2021call">@samory2021call</span> created this dataset to evaluate the reliability of common machine learning models in detecting different types of sexism found online.</p>
-<p>In their work, <span class="citation" data-cites="samory2021call">@samory2021call</span> are very carefully to ground the different dimensions of sexism in psychological scales and derive a codebook for sexism in social media from that foundation. Apart from the variety of defined and operationalized types of sexism collected in their dataset, the authors further include adversarial examples - versions of sexist examples that with minimal lexical changes have been turned non-sexist. The final dataset ultimately combines examples for sexism “in the wild” collected by the authors from the social media platform Twitter, annotations as well as adversarial examples provided by crowdworkers, psychological scales developed to measure sexism as well as examples for different types of sexism extracted from other research datasets. It thereby displays a whole range of interwoven and innovative components that are so typical for research with digital behavioral data.</p>
+<p>We provide an example of how TES-D may be used to critically reflect upon the dataset creation process and result in a dataset documentation sheet by applying it to the “Call me sexist, but..” dataset. <span class="citation" data-cites="samory2021call">Samory et al. (<a href="#ref-samory2021call" role="doc-biblioref">2021</a>)</span> created this dataset to evaluate the reliability of common machine learning models in detecting different types of sexism found online.</p>
+<p>In their work, <span class="citation" data-cites="samory2021call">Samory et al. (<a href="#ref-samory2021call" role="doc-biblioref">2021</a>)</span> are very carefully to ground the different dimensions of sexism in psychological scales and derive a codebook for sexism in social media from that foundation. Apart from the variety of defined and operationalized types of sexism collected in their dataset, the authors further include adversarial examples - versions of sexist examples that with minimal lexical changes have been turned non-sexist. The final dataset ultimately combines examples for sexism “in the wild” collected by the authors from the social media platform Twitter, annotations as well as adversarial examples provided by crowdworkers, psychological scales developed to measure sexism as well as examples for different types of sexism extracted from other research datasets. It thereby displays a whole range of interwoven and innovative components that are so typical for research with digital behavioral data.</p>
 <p>While the authors go to great length to describe the individual collection and processing steps as well as to provide reasoning for the decisions taken in creating the dataset throughout their paper, a researcher considering to re-use the dataset for their own purpose could still struggle to identify the relevant pieces of information to assess its suitability and understand its overall quality. It is at this point where TES-D comes in, offering the dataset creators an additional resource to systematically reflect upon and share any critical decisions and steps taken in preparing the dataset.</p>
 <p>In the following sections, we will introduce the different stages of the research process covered by TES-D and discuss the answers to some of the relevant questions, always using the “Call me sexist, but..” dataset as our case study.</p>
 <section id="general-characteristics" class="level2">
@@ -230,9 +250,26 @@ Case Study
 <p>As demonstrated above, the TES-D helps to structure and inspire a critical reflection on the dataset creation process, beginning with the definition of the construct all the way to the end when analysis results are produced. A key challenge for the development of TES-D is the heterogeneity of digital behavioral data collected from online platforms. While the variety of digital data available offers great opportunities for research, it simultaneously makes it harder to cover and assess all its different aspects that relate to data quality. We tried to account for this challenge by keeping both the questions themselves and the overall format of TES-D flexible - if questions are not applicable to their data collection, dataset creators are encouraged to skip them.</p>
 <p>Another aspect that makes the important data documentation work tedious at times is the rather high level of abstraction. While some of the questions of the TES-D are directly measurable and straightforward to report, the majority of questions requires a more profound reflection not just on the immediate contents and characteristics of the dataset, but also on its situation in the broader research landscape. TES-D therefore not just serves to document the technicalities of datasets, but also the current ethical and legal context in which they exist. Mainly for those questions that directly correspond to actual programming work for data collection and processing, we developed a <strong>Workflow-Integrated Data Documentation tool (WIDD)</strong>, that lowers some of the barriers of documentation by integrating the catalog of relevant questions directly into the Jupyter programming environment.</p>
 <p>Making documentation approaches as accessible as possible is crucial for their impact, as these types of self-assessment tools depend on the willingness of the dataset creators to actively and honestly engage with them. One possibility to further increase that engagement would be the introduction of a score-system, resulting in an overall data quality score for the documented dataset in the end. Apart from raising awareness for data quality by featuring it more prominently, such a score would be useful for researchers that already follow best practices and high standard to more easily display their efforts to the community. An additional benefit would be that re-users of dataset (or reviewers of publications) would have a strong signal for judging the quality of the dataset at a glance.</p>
+
 </section>
 
-</main>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-bender2018data" class="csl-entry" role="listitem">
+Bender, Emily M, and Batya Friedman. 2018. <span>“Data Statements for Natural Language Processing: Toward Mitigating System Bias and Enabling Better Science.”</span> <em>Transactions of the Association for Computational Linguistics</em> 6: 587–604.
+</div>
+<div id="ref-gebru2021datasheets" class="csl-entry" role="listitem">
+Gebru, Timnit, Jamie Morgenstern, Briana Vecchione, Jennifer Wortman Vaughan, Hanna Wallach, Hal Daumé III, and Kate Crawford. 2021. <span>“Datasheets for Datasets.”</span> <em>Communications of the ACM</em> 64 (12): 86–92.
+</div>
+<div id="ref-groves2011survey" class="csl-entry" role="listitem">
+Groves, Robert M, Floyd J Fowler Jr, Mick P Couper, James M Lepkowski, Eleanor Singer, and Roger Tourangeau. 2011. <em>Survey Methodology</em>. John Wiley &amp; Sons.
+</div>
+<div id="ref-samory2021call" class="csl-entry" role="listitem">
+Samory, Mattia, Indira Sen, Julian Kohne, Fabian Flöck, and Claudia Wagner. 2021. <span>“<span>‘Call Me Sexist, but...’</span>: Revisiting Sexism Detection Using Psychological Scales and Adversarial Samples.”</span> In <em>Proceedings of the International AAAI Conference on Web and Social Media</em>, 15:573–84.
+</div>
+<div id="ref-sen2021total" class="csl-entry" role="listitem">
+Sen, Indira, Fabian Flöck, Katrin Weller, Bernd Weiß, and Claudia Wagner. 2021. <span>“A Total Error Framework for Digital Traces of Human Behavior on Online Platforms.”</span> <em>Public Opinion Quarterly</em> 85 (S1): 399–422.
+</div>
+</div></section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
