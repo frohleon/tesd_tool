@@ -1,9 +1,10 @@
 ---
 title: "Total Error Sheets for Datasets (TES-D)"
-author: "Leon Froehling"
+author: "Leon Fröhling"
+image: images/cover.png
+image-alt: A checklist.
 bibliography: references.bib
-format: html
-editor: visual
+data: "`r format(Sys.Date(), '%B %d, %Y')`"
 ---
 
 # 1. Introduction
@@ -32,14 +33,12 @@ In essence, TES-D is a catalog of questions that researchers collecting online p
 
 Further information on the motivation behind creating TES-D as well as the development process are available from the [paper](https://arxiv.org/abs/2306.14219). The paper also provides the full versions of all materials.
 
-::: panel-tabset
-## First Page Template
+::: {#fig-template layout-ncol="2"}
+![](images/t1.jpg){width="90%"}
 
-![](images/t1.jpg)
+![](images/t2.jpg){width="90%"}
 
-## Second Page Template
-
-![](images/t2.jpg)
+Visual TES-D Template
 :::
 
 # 3. Application and use case
@@ -60,13 +59,7 @@ TES-D starts by establishing a level of transparency, accountability and respons
 
 For the "Call me sexist, but.." dataset, one important aspect to properly document is its composition, given that instances are combined from different sources and augmented using adversarial examples. The TES-D therefore lists the number of instances and adversarial examples coming from each source. Another critical question in this section regards ethical considerations. While no ethics review process had been conducted, the fact that the dataset creators took care to fairly compensate and debrief crowdworkers may still be highlighted. The TES-D also communicates that out of ethical considerations the adversarial augmentations were restricted to turning sexist instances into non-sexist instances, not vice-versa.
 
-::: {.callout-tip collapse="true"}
-### Case Study
-
-<iframe src="images/1gen.pdf" width="100%" height="600px">
-
-</iframe>
-:::
+![Case Study - General Characteristics](images/1gen.pdf){width=100%}
 
 ## Construct Definition
 
@@ -78,13 +71,7 @@ With a strong focus on validity, the questions in this section first establish t
 
 The Construct Definition section of the TES-D for the "Call me sexist, but.." dataset starts with a detailed explanation of the dataset creators' research objectives. Part of what makes the dataset unique is its theory-informed taxonomy of types of sexism and the attention on not just the contents but also the phrasing of the instances. The TES-D lists both these aspects, before explaining the operationalization of sexism through the coding scheme which was then used by crowdworkers to generate the dataset labels. Even though the dataset creators do not explicitly define a target population in their work, the corresponding question may still be answered by their focus on "sexism in social media", making the English-speaking platform (in this case Twitter) users the target population.
 
-::: {.callout-tip collapse="true"}
-### Case Study
-
-<iframe src="images/2con.pdf" width="100%" height="600px">
-
-</iframe>
-:::
+![Case Study - Construct Definition](images/2con.pdf){width=100%}
 
 ## Platform Selection
 
@@ -94,13 +81,7 @@ Questions in this section are all about capturing the essence of the platform at
 
 The TES-D for the "Call me sexist, but.." dataset makes an effort to cover as many of the platform characteristics at the time of data collection as possible. For example, back when the original dataset was created, there still was a limit of 280 characters for posts on Twitter. An important aspect with regard to the construct of interest is the fact that the terms of service listed "sexist tropes" as a reason for a tweet's potential removal, thus making the availability of instances relevant for the dataset dependent on the efficiency and efficacy of the platform's moderation practices. For any platform data collection, the question how exactly the data is made accessible by the platform (and oftentimes more importantly how it is restricted) is crucial for the size and shape of the resulting dataset. In case of the "Call me sexist, but.." dataset, the Twitter API was still openly available for researchers, allowing the dataset creators to retrospectively collect tweets via keywords or keyphrases. In theory, this allows researchers to collect all tweets containing the given word or phrases. In practice, however, tweets that had been removed either by the platform or by the user before they could be collected for the dataset would be missing.
 
-::: {.callout-tip collapse="true"}
-### Case Study
-
-<iframe src="images/3pla.pdf" width="100%" height="600px">
-
-</iframe>
-:::
+![Case Study - Platform Selection](images/3pla.pdf){width=100%}
 
 ## Data Collection
 
@@ -114,13 +95,7 @@ The questions on the actual collection of the data are all about the (technical)
 
 In the TES-D, the rationale behind the used keyphrase "Call me sexist, but.." is laid out, oftentimes observed to practically serve as a disclaimer for sexist opinion following it. For the "Call me sexist, but.." dataset, the creators implemented a number of steps to ensure the anonymity of Twitter users whose tweets were collected. Usernames were replaced with placeholder-tokens, and mentions of family names in the text were detected using regular expressions and a NER model before being abbreviated to only the initial letter.
 
-::: {.callout-tip collapse="true"}
-### Case Study
-
-<iframe src="images/4col.pdf" width="100%" height="600px">
-
-</iframe>
-:::
+![Case Study - Data Collection](images/4col.pdf){width=100%}
 
 ## Data Preprocessing and Data Analysis
 
@@ -134,13 +109,7 @@ The questions in this section focus on the different way for augmenting datasets
 
 In the "Call me sexist, but.." dataset, getting the right annotations of the collected instances for the construct of sexism is crucial. The TES-D for this dataset therefore explains in detail the process of recruiting and training the crowdworkers serving as annotators, further documenting the remuneration of the workers. Crowdworkers had to be located in the US and have large experience on the annotation platform (MTurk), combined with a past approval rate of their work above 99%. In the final qualification test, they had to correctly annotate four out of five examples. Regarding the validation of the resulting labels, the TES-D documents the aggregation of individual annotations into a final via majority vote and the use of Randolph's Kappa and majority agreement for verification of the annotator consistency. TES-D finally offers a discussion of potential misuse scenarios, raising awareness of the danger that malicious actors could use the sexist instances in the dataset to further spread them directly or to train models to artificially generate similar harmful content.
 
-::: {.callout-tip collapse="true"}
-### Case Study
-
-<iframe src="images/5pre.pdf" width="100%" height="600px">
-
-</iframe>
-:::
+![Case Study - Data Preprocessing and Data Analysis](images/5pre.pdf){width=100%}
 
 # 4. Discussion
 

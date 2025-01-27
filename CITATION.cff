@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it using these metadata.
+title: Total Error Sheets for Datasets (TES-D)
+abstract: The Total Error Sheets for Datasets (TES-D) are a template-based approach for documenting datasets collected from online platforms.
+authors:
+  - family-names: Fröhling
+    given-names: Leon
+    affiliation: "GESIS - Leibniz Institute for the Social Sciences"
+    orcid: "https://orcid.org/0000-0002-5339-7019"
+version: 0.0.1
+date-released: "2025-01-27"
+license: MIT
+repository-code: "https://github.com/frohleon/tesd_tool"
